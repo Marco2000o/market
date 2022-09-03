@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "compras_producto")
+@Table(name = "compras_productos")
 public class ComprasProducto {
     @EmbeddedId
     private ComprasProductoPK id;
@@ -16,18 +16,19 @@ public class ComprasProducto {
     private Boolean estado;
 
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", insertable = true, updatable = true)
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
     private Producto producto;
 
     public ComprasProductoPK getId() {
         return id;
     }
 
-    public void setId(ComprasProductoPK id) {
+    public void  setId(ComprasProductoPK id) {
         this.id = id;
     }
 

@@ -5,8 +5,8 @@ import com.platzi.market.persistence.entity.Categoria;
 import org.mapstruct.*;
 import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper(componentModel = "@Repository")
+
+@Mapper(componentModel = "spring")
 public interface CategoryMapper {
     @Mappings({
             @Mapping(source = "idCategoria", target = "categoryId"),
